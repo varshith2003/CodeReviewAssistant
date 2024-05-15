@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Signup</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/bootstarp.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/form.css' %}" />
+    <script
+      type="text/javascript"
+      src="{% static 'js/bootstrap.min.js' %}"
+    ></script>
+    <!-- Link to your CSS file -->
+  </head>
+
+  <body>
+    <div class="login-form-container">
+      <h2>Signup</h2>
+      <form method="post">
+        {% csrf_token %}
+        <!-- Update action as needed -->
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div class="form-group">
+          <button type="submit">Signup</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  {% if error %}
+  alert("{{error}}");
+  {% endif %}
+</script>

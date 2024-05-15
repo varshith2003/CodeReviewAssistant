@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI POWERED CODE REVIEW ASSISTANT</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/bootstarp.css' %}"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url("https://source.unsplash.com/1600x900/?programming"); /* Background image from Unsplash */
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.7
+        ); /* Semi-transparent black background color */
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        position: relative;
+      }
+
+      header {
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 36px;
+      }
+
+      nav {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      nav ul {
+        background-color: rgb(150, 143, 143);
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li {
+        display: inline;
+        margin-right: 20px;
+      }
+
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+      }
+
+      .content {
+        padding: 20px;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      footer p {
+        margin: 0;
+        font-size: 14px;
+      }
+
+      .user-options {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+
+      #userMenuButton {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .user-menu {
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 5px;
+        padding: 20px;
+        display: none;
+        position: absolute;
+        top: 37px;
+        right: 5px;
+        z-index: 1;
+      }
+
+      .user-menu ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .user-menu ul li {
+        margin-bottom: 10px;
+      }
+
+      .user-menu ul li a {
+        color: #fff;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>AI POWERED CODE REVIEW ASSISTANT</h1>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="{% url 'cs' %}">Submit Code</a></li>
+          <li><a href="{% url 'ps' %}">Previous Results</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+      <section class="content">
+        <h2>About</h2>
+        <p>
+          Welcome to the AI Powered Code Review Assistant project. This project
+          aims to develop a tool that uses machine learning to analyze and
+          provide feedback on code during the review process, helping identify
+          potential issues and improvements.
+        </p>
+        <p>Stay tuned for updates!</p>
+      </section>
+      <footer>
+        <p>Contact Us: support@aicodereviewassistant.com</p>
+      </footer>
+    </div>
+    <div class="user-options">
+      <button id="userMenuButton">User Menu</button>
+      <div id="userMenu" class="user-menu">
+        <ul>
+          <li><a href="#">Profile</a></li>
+          <li><a href="{% url 'in' %}">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("userMenuButton")
+        .addEventListener("click", function () {
+          var userMenu = document.getElementById("userMenu");
+          if (userMenu.style.display === "block") {
+            userMenu.style.display = "none";
+          } else {
+            userMenu.style.display = "block";
+          }
+        });
+    </script>
+  </body>
+</html>
+
+<script>
+  {% if error %}
+  alert("{{error}}");
+  {% endif %}
+</script>

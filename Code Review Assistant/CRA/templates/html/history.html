@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submissions</title>
+  </head>
+  <style>
+    /* styles.css */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    #submission-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .submission-item {
+      background-color: #f9f9f9;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    .submission-item span {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .serial-number,
+    .submission-id,
+    .submission-time,
+    .code-review {
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
+  <body>
+    <h1>List of Submissions</h1>
+    <ul id="submission-list">
+      {% for submission in reviews %}
+      <li class="submission-item">
+        <span class="serial-number">Serial Number: {{ forloop.counter }}</span
+        ><br />
+        <span class="submission-id">Submission ID: {{ submission.sub_id }}</span
+        ><br />
+        <span class="submission-time"
+          >Submission Time: {{ submission.date }}</span
+        ><br />
+        <span class="Code :">Submission ID: {{ submission.code }}</span><br />
+        <span class="code-review"
+          >Code Review: {{ submission.gemini_output }}</span
+        ><br />
+      </li>
+      {% endfor %}
+    </ul>
+
+    <div id="submission-text"></div>
+  </body>
+</html>
